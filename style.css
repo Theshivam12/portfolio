@@ -770,79 +770,81 @@ button {
 }
 
 
-.finance-ui {
-    width: 230px;
+/* =================================
+   PROJECT IMAGE PREVIEW
+================================= */
 
-    padding: 22px;
+.project-preview {
+    width: 100%;
+    height: 320px;
 
-    background: #1e1e1e;
+    position: relative;
 
-    color: white;
+    overflow: hidden;
 
-    border-radius: 10px;
+    border-radius: 24px;
 
-    box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+    background: #111;
 
-    transition: 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
-.project-card:hover .finance-ui {
-    transform: translateY(-8px) rotate(2deg);
-}
+.project-preview img {
+    width: 100%;
+    height: 100%;
 
-.finance-header {
-    display: flex;
-    justify-content: space-between;
-
-    font-size: 10px;
-}
-
-.finance-balance {
-    margin-top: 30px;
-}
-
-.finance-balance small {
-    font-size: 7px;
-    color: #999;
-}
-
-.finance-balance strong {
     display: block;
 
-    font-size: 28px;
+    object-fit: contain;
 
-    margin-top: 5px;
+    transition: transform 0.7s ease;
 }
 
-.chart {
-    display: flex;
 
-    align-items: end;
+/* HOVER EFFECT */
 
-    gap: 5px;
+.project-preview:hover {
+    transform: translateY(-8px);
 
-    height: 80px;
-
-    margin-top: 20px;
+    box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.5);
 }
 
-.chart span {
-    width: 12px;
-
-    background: #aaa;
-
-    border-radius: 3px 3px 0 0;
+.project-preview:hover img {
+    transform: scale(1.05);
 }
 
-.chart span:nth-child(1) { height: 35%; }
-.chart span:nth-child(2) { height: 50%; }
-.chart span:nth-child(3) { height: 40%; }
-.chart span:nth-child(4) { height: 70%; }
-.chart span:nth-child(5) { height: 55%; }
-.chart span:nth-child(6) { height: 85%; }
-.chart span:nth-child(7) { height: 100%; }
 
+/* MOBILE */
 
+@media (max-width: 768px) {
+
+    .project-preview {
+        height: 260px;
+        border-radius: 20px;
+    }
+
+    .project-preview:hover {
+        transform: none;
+    }
+
+    .project-preview:hover img {
+        transform: none;
+    }
+
+    /* Touch animation */
+    .project-preview:active {
+        transform: scale(0.98);
+    }
+
+}
 .phone-ui {
     width: 145px;
     height: 260px;
